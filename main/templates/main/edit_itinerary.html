@@ -1,0 +1,119 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="itinerary-page">
+
+    <div class="itinerary-card">
+
+        <h1>Edit Your Itinerary</h1>
+
+        <p class="subtitle">
+            Update your travel plans anytime before your next adventure.
+        </p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{{ message.tags }}">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Destination</label>
+
+            <select name="destination">
+
+                <option value="India" {% if trip.destination == "India" %}selected{% endif %}>India</option>
+
+                <option value="Japan" {% if trip.destination == "Japan" %}selected{% endif %}>Japan</option>
+
+                <option value="Thailand" {% if trip.destination == "Thailand" %}selected{% endif %}>Thailand</option>
+
+                <option value="Switzerland" {% if trip.destination == "Switzerland" %}selected{% endif %}>Switzerland</option>
+
+                <option value="Maldives" {% if trip.destination == "Maldives" %}selected{% endif %}>Maldives</option>
+
+                <option value="France" {% if trip.destination == "France" %}selected{% endif %}>France</option>
+
+                <option value="Italy" {% if trip.destination == "Italy" %}selected{% endif %}>Italy</option>
+
+                <option value="Norway" {% if trip.destination == "Norway" %}selected{% endif %}>Norway</option>
+
+                <option value="Dubai" {% if trip.destination == "Dubai" %}selected{% endif %}>Dubai</option>
+
+                <option value="Bali" {% if trip.destination == "Bali" %}selected{% endif %}>Bali</option>
+
+                <option value="Hawaii" {% if trip.destination == "Hawaii" %}selected{% endif %}>Hawaii</option>
+
+                <option value="Egypt" {% if trip.destination == "Egypt" %}selected{% endif %}>Egypt</option>
+
+            </select>
+
+            <label>Start Date</label>
+
+            <input
+                type="date"
+                name="start_date"
+                value="{{ trip.start_date|date:'Y-m-d' }}"
+                required
+            >
+
+            <label>End Date</label>
+
+            <input
+                type="date"
+                name="end_date"
+                value="{{ trip.end_date|date:'Y-m-d' }}"
+                required
+            >
+
+            <label>Number of Travelers</label>
+
+            <input
+                type="number"
+                name="travelers"
+                value="{{ trip.travelers }}"
+                min="1"
+                required
+            >
+
+            <label>Budget</label>
+
+            <select name="budget">
+
+                <option value="Economy" {% if trip.budget == "Economy" %}selected{% endif %}>Economy</option>
+
+                <option value="Standard" {% if trip.budget == "Standard" %}selected{% endif %}>Standard</option>
+
+                <option value="Luxury" {% if trip.budget == "Luxury" %}selected{% endif %}>Luxury</option>
+
+            </select>
+
+            <label>Additional Notes</label>
+
+            <textarea
+                name="notes"
+                rows="5"
+            >{{ trip.notes }}</textarea>
+
+            <button type="submit">
+                Update Itinerary
+            </button>
+
+        </form>
+
+    </div>
+
+    <footer class="login-footer">
+        <p>© 2026 Silver Escapes. All Rights Reserved.</p>
+    </footer>
+
+</section>
+
+{% endblock %}

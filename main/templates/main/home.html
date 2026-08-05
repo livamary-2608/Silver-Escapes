@@ -1,0 +1,186 @@
+{% extends 'main/base.html' %}
+{%load static%}
+{% block content %}
+<section class="hero">
+    <h1>Explore the World with Silver Escapes</h1>
+    <p>
+        Plan unforgettable journeys with ease.
+        Discover destinations, organize itineraries,
+        and travel smarter.
+    </p>
+    <a href="{% url 'destinations' %}" class="hero-btn">
+        Explore Now
+    </a>
+</section>
+<section class="destinations">
+
+    <h2>Popular Destinations</h2>
+
+    <p>Discover breathtaking places loved by travelers around the world.</p>
+
+    <div class="destination-grid">
+
+        <a href="{% url 'destination_detail' 'france' %}" class="destination-card-link">
+    <div class="card">
+        <img src="{% static 'main/images/paris.jpeg' %}" alt="Paris">
+        <h3>Paris</h3>
+        <p>City of Lights and timeless romance.</p>
+    </div>
+</a>
+
+        <a href="{% url 'destination_detail' 'bali' %}" class="destination-card-link">
+    <div class="card">
+        <img src="{% static 'main/images/bali.jpeg' %}" alt="Bali">
+        <h3>Bali</h3>
+        <p>Tropical paradise with stunning beaches.</p>
+    </div>
+</a>
+
+        <a href="{% url 'destination_detail' 'switzerland' %}" class="destination-card-link">
+    <div class="card">
+        <img src="{% static 'main/images/swiss.jpeg' %}" alt="Switzerland">
+        <h3>Switzerland</h3>
+        <p>Snowy mountains and unforgettable scenery.</p>
+    </div>
+</a>
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2>Why Choose Silver Escapes?</h2>
+
+    <p>Your perfect travel companion from planning to exploring.</p>
+
+    <div class="feature-container">
+
+        <div class="feature-box">
+            <h3>🌍 Personalized Trips</h3>
+            <p>Create custom itineraries tailored to your travel style.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>💰 Budget Friendly</h3>
+            <p>Compare destinations and plan within your budget.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>📅 Smart Itinerary</h3>
+            <p>Organize every day of your trip with ease.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>⭐ Trusted Reviews</h3>
+            <p>Read genuine experiences from fellow travelers.</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="reviews">
+
+    <h2>What Our Travelers Say</h2>
+
+    <p>
+        Hear from travelers who planned unforgettable journeys with Silver Escapes.
+    </p>
+
+    <div class="review-container">
+
+        <div class="review-box">
+            <div class="stars">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+
+            <p>
+                "Silver Escapes made planning our honeymoon effortless. Every recommendation was perfect!"
+            </p>
+
+            <h4>Emma Wilson</h4>
+            <span>London, UK</span>
+        </div>
+
+        <div class="review-box">
+            <div class="stars">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+
+            <p>
+                "The itinerary planner saved us hours of planning. Everything was organized beautifully."
+            </p>
+
+            <h4>Liva Mary</h4>
+            <span>Tamil Nadu, India</span>
+        </div>
+
+        <div class="review-box">
+            <div class="stars">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+</div>
+
+            <p>
+                "Beautiful interface and amazing destinations. I can't wait for my next trip!"
+            </p>
+
+            <h4>Sophia Lee</h4>
+            <span>Seoul, South Korea</span>
+        </div>
+
+    </div>
+
+</section>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-logo">
+            <h2>Silver <span>Escapes</span></h2>
+            <p>Explore. Discover. Escape.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'destinations' %}">Destinations</a>
+            <a href="{% url 'itinerary' %}">Itinerary</a>
+            <a href="{% url 'about' %}">About</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'faq' %}">FAQ</a>
+            <a href="{% url 'about' %}#privacy">Privacy Policy</a>
+            <a href="{% url 'about' %}#terms">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Get in Touch</h3>
+            <p>📍 Chennai, India</p>
+            <p>💌 info@silverescapes.com</p>
+            <p>📞 +91 63546 87390</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+        © 2026 Silver Escapes. All Rights Reserved.
+    </p>
+
+</footer>
+{% endblock %}

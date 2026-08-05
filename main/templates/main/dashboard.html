@@ -1,0 +1,156 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="dashboard-page">
+
+    <div class="dashboard-card">
+
+        <div class="profile-circle">
+
+    {% if request.user.profile.profile_picture %}
+
+        <img src="{{ request.user.profile.profile_picture.url }}" class="profile-image">
+
+    {% else %}
+
+        <i class="fa-solid fa-circle-user"></i>
+
+    {% endif %}
+
+</div>
+        
+
+        <h1>
+    Welcome back,
+    {% if request.user.first_name %}
+        {{ request.user.first_name }}
+    {% else %}
+        {{ request.user.username }}
+    {% endif %}
+    !
+</h1>
+        <p class="dashboard-subtitle">
+            Ready for your next adventure?
+        </p>
+        <a href="{% url 'edit_profile' %}" class="edit-btn">
+    Edit Profile
+</a>
+
+        <div class="info-box">
+            <h3>Username</h3>
+            <p>{{ request.user.username }}</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Email</h3>
+            <p>{{ request.user.email }}</p>
+        </div>
+        <div class="info-box">
+    <h3>Phone Number</h3>
+    <p>
+        {% if request.user.profile.phone_number %}
+            {{ request.user.profile.phone_number }}
+        {% else %}
+            Not Added
+        {% endif %}
+    </p>
+</div>
+        <div class="quickaction-card">
+        <h2>Quick Actions</h2>
+        </div>
+
+        <div class="dashboard-buttons">
+
+            <a href="{% url 'destinations' %}" class="dashboard-btn">
+                🌍 Explore Destinations
+            </a>
+
+            <a href="{% url 'itinerary' %}" class="dashboard-btn">
+                🗓️ Plan an Itinerary
+            </a>
+
+        </div>
+        <div class="journey-box">
+
+    <h2>❤️ My Wishlist</h2>
+
+    {% if wishlist %}
+
+        {% for place in wishlist %}
+
+            <div class="dashboard-trip">
+
+                <a href="{% url 'destination_detail' place.slug %}">
+
+                    {{ place.name }}
+
+                </a>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+
+            Your wishlist is empty.
+
+            Save destinations you'd love to visit!
+
+        </p>
+
+    {% endif %}
+
+</div>
+
+        <div class="journey-box">
+
+    <h2>Your Journey</h2>
+
+    {% if trips %}
+
+        {% for trip in trips %}
+
+            <div class="dashboard-trip">
+
+    <h3>{{ trip.destination }}</h3>
+
+    <p class="trip-duration">
+        Duration: {{ trip.days }} Day{{ trip.days|pluralize }}
+    </p>
+
+</div>
+
+        {% endfor %}
+
+        <a href="{% url 'itinerary' %}" class="view-all">
+
+            View All →
+
+        </a>
+
+    {% else %}
+
+        <p>
+
+            You haven't created any itineraries yet. Start planning your first adventure!
+
+        </p>
+
+    {% endif %}
+
+</div>
+
+
+    </div>
+
+    <footer class="login-footer">
+        <p>© 2026 Silver Escapes. All Rights Reserved.</p>
+    </footer>
+
+</section>
+
+{% endblock %}

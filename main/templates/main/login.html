@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section class="login-page">
+    <div class="login-card">
+        <h1>Welcome Back</h1>
+        <p>Sign in to continue planning your next adventure.</p>
+        {% if messages %}
+    {% for message in messages %}
+        <p class="message {{ message.tags }}">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username">
+            <div class="password-box">
+
+    <input type="password" id="password" name="password" placeholder="Password">
+
+    <i class="fa-solid fa-eye" id="togglePassword"></i>
+
+</div>
+            <a href="{% url 'password_reset' %}" class="forgot">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <p class="signup">
+            Don't have an account?
+            <a href="{% url 'register' %}">Register</a>
+        </p>
+    </div>
+
+    <footer class="login-footer">
+    <p>© 2026 Silver Escapes. All Rights Reserved.</p>
+    </footer>
+
+</section>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("registered") === "true") {
+        alert("Account created successfully! Please log in.");
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,180 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="destination-page">
+
+    <div class="destination-container">
+
+        <h1>Explore Destinations</h1>
+
+        <p class="destination-subtitle">
+            Discover breathtaking places around the world and find your next unforgettable adventure.
+        </p>
+        <div class="search-container">
+
+    <input
+        type="text"
+        id="destinationSearch"
+        placeholder="Search Destinations..."
+    >
+
+</div>
+
+        <div class="destination-grid">
+
+            <!-- India -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/india.jpeg' %}" alt="India">
+                <div class="destination-content">
+                    <h2>India</h2>
+                    <p>Experience majestic forts, Himalayan landscapes, peaceful backwaters, and a rich cultural heritage.</p>
+                    <a href="{% url 'destination_detail' 'india' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Japan -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/japan.jpeg' %}" alt="Japan">
+                <div class="destination-content">
+                    <h2>Japan</h2>
+                    <p>Discover cherry blossoms, ancient temples, futuristic cities, delicious cuisine, and timeless traditions.</p>
+                    <a href="{% url 'destination_detail' 'japan' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Thailand -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/thailand.jpeg' %}" alt="Thailand">
+                <div class="destination-content">
+                    <h2>Thailand</h2>
+                    <p>Relax on tropical beaches, explore vibrant markets, stunning islands, and breathtaking temples.</p>
+                    <a href="{% url 'destination_detail' 'thailand' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Switzerland -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/switzerland.jpeg' %}" alt="Switzerland">
+                <div class="destination-content">
+                    <h2>Switzerland</h2>
+                    <p>Admire snow-capped mountains, crystal-clear lakes, charming villages, and scenic train journeys.</p>
+                    <a href="{% url 'destination_detail' 'switzerland' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Maldives -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/maldives.jpeg' %}" alt="Maldives">
+                <div class="destination-content">
+                    <h2>Maldives</h2>
+                    <p>Escape to turquoise waters, luxurious overwater villas, coral reefs, and unforgettable sunsets.</p>
+                    <a href="{% url 'destination_detail' 'maldives' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- France -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/france.jpeg' %}" alt="France">
+                <div class="destination-content">
+                    <h2>France</h2>
+                    <p>Explore iconic landmarks, romantic streets, world-famous cuisine, and beautiful countryside.</p>
+                    <a href="{% url 'destination_detail' 'france' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Italy -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/italy.jpeg' %}" alt="Italy">
+                <div class="destination-content">
+                    <h2>Italy</h2>
+                    <p>Enjoy historic architecture, delicious pasta, artistic masterpieces, and breathtaking coastlines.</p>
+                   <a href="{% url 'destination_detail' 'italy' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Norway -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/norwayy.jpeg' %}" alt="Norway">
+                <div class="destination-content">
+                    <h2>Norway</h2>
+                    <p>Witness majestic fjords, northern lights, towering mountains, and unforgettable road trips.</p>
+                    <a href="{% url 'destination_detail' 'norway' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Dubai -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/dubai.jpeg' %}" alt="Dubai">
+                <div class="destination-content">
+                    <h2>Dubai</h2>
+                    <p>Experience futuristic skyscrapers, luxury shopping, thrilling desert safaris, and modern attractions.</p>
+                    <a href="{% url 'destination_detail' 'dubai' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Bali -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/balii.jpeg' %}" alt="Bali">
+                <div class="destination-content">
+                    <h2>Bali</h2>
+                    <p>Discover lush rice terraces, peaceful temples, tropical beaches, and relaxing island vibes.</p>
+                    <a href="{% url 'destination_detail' 'bali' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Hawaii -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/hawaii.jpeg' %}" alt="Hawaii">
+                <div class="destination-content">
+                    <h2>Hawaii</h2>
+                    <p>Enjoy volcanic landscapes, golden beaches, crystal-clear waters, surfing, and unforgettable sunsets.</p>
+                    <a href="{% url 'destination_detail' 'hawaii' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+            <!-- Egypt -->
+            <div class="destination-card">
+                <img src="{% static 'main/images/egypt.jpeg' %}" alt="Egypt">
+                <div class="destination-content">
+                    <h2>Egypt</h2>
+                    <p>Step into ancient history with magnificent pyramids, temples, the Nile River, and timeless wonders.</p>
+                    <a href="{% url 'destination_detail' 'egypt' %}" class="destination-btn">Explore</a>
+                </div>
+            </div>
+
+        </div>
+        <div id="noResults" class="no-results">
+
+    <h2>No destinations found.</h2>
+
+</div>
+
+    </div>
+
+    <footer class="destination-footer">
+
+    <h2>Your Next Adventure Awaits</h2>
+
+    <p>
+        From snowy mountains to tropical islands,
+        Silver Escapes helps you discover the world
+        one destination at a time.
+    </p>
+
+    <a href="{% url 'itinerary' %}" class="footer-btn">
+        Start Planning
+    </a>
+
+    <hr>
+
+    <p class="copyright">
+        © 2026 Silver Escapes. All Rights Reserved.
+    </p>
+
+</footer>
+
+</section>
+
+{% endblock %}

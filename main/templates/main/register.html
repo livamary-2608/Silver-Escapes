@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section class="login-page">
+    <div class="login-card">
+        <h1>Create Account</h1>
+        <p>Join Silver Escapes and start your next adventure.</p>
+        {% if messages %}
+    {% for message in messages %}
+        <p class="message {{ message.tags }}">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+        <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="fullname" placeholder="Full Name">
+    <input type="text" name="username" placeholder="Username">
+    <input type="email" name="email" placeholder="Email">
+    <div class="password-box">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <i class="fa-solid fa-eye" id="togglePassword"></i>
+    </div>
+    <div class="password-box i">
+        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password">
+        <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
+    </div>
+    <button type="submit">Create Account</button>
+        </form>
+        <p class="signup">
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+    <footer class="login-footer">
+    <p>© 2026 Silver Escapes. All Rights Reserved.</p>
+    </footer>
+</section>
+{% endblock %}

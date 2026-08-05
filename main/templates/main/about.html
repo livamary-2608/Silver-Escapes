@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="about-page">
+
+    <div class="about-card">
+
+        <div class="about-image">
+            <img src="{% static 'main/images/abcabg.jpeg' %}" alt="Travel">
+        </div>
+
+        <div class="about-content">
+
+            <h1>About Silver Escapes</h1>
+
+            <h3>Explore. Discover. Escape.</h3>
+
+            <p>
+                Silver Escapes was created with one simple goal:
+                making travel planning effortless and enjoyable.
+                Whether you're dreaming of mountains, beaches,
+                bustling cities, or peaceful countryside retreats,
+                we help you organize unforgettable adventures with ease.
+            </p>
+
+            <div class="features">
+
+                <div>🌍 Amazing Destinations</div>
+
+                <div>📝 Smart Planning</div>
+
+                <div>💰 Budget Friendly Trips</div>
+
+                <div>❤️ Travel Made Simple</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="extra-info">
+
+    <div class="policy-card" id="privacy">
+        <h2>🔒 Privacy Policy</h2>
+        <p>
+            Silver Escapes values your privacy. We only collect the
+            information necessary to provide travel planning services.
+            Your personal information is never sold or shared with third
+            parties without your consent.
+        </p>
+    </div>
+
+    <div class="policy-card" id="terms">
+        <h2>📜 Terms & Conditions</h2>
+        <p>
+            By using Silver Escapes, you agree to use the platform
+            responsibly. Destination information is provided for planning
+            purposes and may change without prior notice. Users are
+            responsible for verifying travel requirements before booking.
+        </p>
+    </div>
+
+</div>
+<footer class="about-footer">
+    <p> © 2026 Silver Escapes. All Rights Reserved.</p>
+</footer>
+{% endblock %}

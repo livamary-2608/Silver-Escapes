@@ -1,0 +1,88 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Hotels | Silver Escapes{% endblock %}
+
+{% block content %}
+
+<div class="hotel-container">
+
+    <h1>🏨 Recommended Hotels in {{ destination.name }}</h1>
+
+    <p class="hotel-subtitle">
+        Carefully selected accommodations across Economy, Standard and Luxury categories.
+    </p>
+
+    <div class="hotel-grid">
+
+        {% for hotel in hotels %}
+
+        <div class="hotel-card">
+
+            <img src="{% static hotel.image %}" alt="{{ hotel.name }}">
+
+            <div class="hotel-info">
+
+    <h2>{{ hotel.name }}</h2>
+
+    <p class="hotel-location">{{ hotel.location }}</p>
+
+    <p class="hotel-rating">{{ hotel.rating }}</p>
+
+    <span class="category">
+        {{ hotel.category }}
+    </span>
+
+    <p><strong>💰 Starting from:</strong> {{ hotel.price }}</p>
+
+    <h4>✨ Amenities</h4>
+
+    <ul>
+        {% for item in hotel.amenities %}
+        <li>✓ {{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ hotel.maps }}" target="_blank" class="hotel-btn">
+        📍 View on Map
+    </a>
+
+    <a href="{{ hotel.website }}" target="_blank" class="hotel-btn">
+        🌐 Hotel Website
+    </a>
+
+</div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+<footer>
+    <div class="hotels-footer">
+
+        <h2>Rest Well. Explore Better.</h2>
+
+        <p>
+            Every unforgettable journey deserves the perfect place to unwind.
+            From luxury retreats to cozy escapes, Silver Escapes helps you
+            find stays that feel just like home.
+        </p>
+
+        <a href="{% url 'destinations' %}" class="footer-btn">
+            🌍 Explore More Destinations
+        </a>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Silver Escapes. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+</div>
+
+{% endblock %}

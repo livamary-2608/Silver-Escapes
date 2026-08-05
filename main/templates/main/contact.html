@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section class="contact-page">
+    <div class="contact-card">
+        <div class="contact-left">
+            <h1>Get in Touch</h1>
+            <p>
+                We'd love to hear from you.
+                Whether you have questions, suggestions,
+                or need help planning your next adventure,
+                we're here for you.
+            </p>
+            <div class="contact-info">
+                <p>📍 Chennai, India</p>
+                <p>💌 support@silverescapes.com</p>
+                <p>📞 +91 63546 87390</p>
+            </div>
+        </div>
+        <div class="contact-right">
+            {% if messages %}
+
+    {% for message in messages %}
+
+        <p class="{{ message.tags }}">
+            {{ message }}
+        </p>
+
+    {% endfor %}
+
+{% endif %}
+            <form method="POST">
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea
+                rows="6"
+                name="message"
+                placeholder="Write your message..." required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+    <footer class="login-footer">
+        <p>© 2026 Silver Escapes. All Rights Reserved.</p>
+    </footer>
+</section>
+{% endblock %}

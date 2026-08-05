@@ -1,0 +1,185 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="destination-details">
+
+    <div class="hero-section">
+
+        <img src="{% static destination.hero %}" alt="{{ destination.name }}">
+
+        <div class="hero-text">
+
+            <h1>{{ destination.name }}</h1>
+
+            <p>
+                Discover the beauty, culture and unforgettable experiences that await in {{ destination.name }}.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="details-container">
+
+        <section class="info-card">
+
+            <h2>Estimated Budget</h2>
+
+            <div class="budget-grid">
+
+                <div class="budget-box">
+                    <h3>Economy</h3>
+                    <p>{{ destination.budget.Economy }}</p>
+                </div>
+
+                <div class="budget-box">
+                    <h3>Standard</h3>
+                    <p>{{ destination.budget.Standard }}</p>
+                </div>
+
+                <div class="budget-box">
+                    <h3>Luxury</h3>
+                    <p>{{ destination.budget.Luxury }}</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="info-card">
+
+            <h2>Best Time to Visit</h2>
+
+            <p class="simple-text">
+
+                {{ destination.best_time }}
+
+            </p>
+
+        </section>
+
+        <section class="info-card">
+
+            <h2>Must Try Foods</h2>
+
+            <ul class="food-list">
+
+                {% for food in destination.foods %}
+
+                <li>{{ food }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </section>
+
+        <section class="info-card">
+
+            <h2>Top Attractions</h2>
+
+            <div class="places-grid">
+
+                {% for place in destination.places %}
+
+                <div class="place-card">
+
+                    <img src="{% static place.image %}" alt="{{ place.name }}">
+
+                    <h3>{{ place.name }}</h3>
+
+                    <a href="{{ place.map }}"
+   target="_blank"
+   class="map-link">
+
+    <i class="fa-solid fa-location-dot"></i>
+    View on Map
+
+</a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+        <div class="hotel-link">
+    <a href="{% url 'hotels' slug %}">
+        🏨 View Recommended Hotels
+    </a>
+</div>
+        <section class="info-card">
+
+            <h2>Travel Tips</h2>
+
+            <ul class="tips-list">
+
+                {% for tip in destination.tips %}
+
+                <li>{{ tip }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </section>
+
+        <div class="destination-buttons">
+
+            <a href="{% url 'toggle_wishlist' slug %}" class="wishlist-btn">
+
+    {% if saved %}
+
+        ❤️ Saved
+
+    {% else %}
+
+        🩷 Add to Wishlist
+
+    {% endif %}
+
+            </a>
+
+            <a href="{% url 'itinerary' %}?destination={{ destination.name }}"
+               class="plan-btn">
+
+                Plan Your Trip
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer class="details-footer">
+
+        <h2>Your Next Adventure Starts Here</h2>
+
+        <p>
+
+            Every destination tells a different story. Explore, dream and
+            create unforgettable memories with Silver Escapes.
+
+        </p>
+
+        <a href="{% url 'destinations' %}" class="footer-btn">
+
+            Explore More Destinations
+
+        </a>
+
+        <hr>
+
+        <p class="copyright">
+
+            © 2026 Silver Escapes. All Rights Reserved.
+
+        </p>
+
+    </footer>
+
+</section>
+
+{% endblock %}
