@@ -134,7 +134,12 @@ def itinerary(request):
 
     if request.method == "POST":
 
-        destination = request.POST["destination"]
+        destination = request.POST.get("destination", "")
+
+        if not destination:
+            messages.error(request, "Please select required fields.")
+            return redirect("itinerary")
+
         start_date = request.POST["start_date"]
         end_date = request.POST["end_date"]
         travelers = request.POST["travelers"]
@@ -158,6 +163,7 @@ def itinerary(request):
     itineraries = Itinerary.objects.filter(
         user=request.user
     ).order_by("-created_at")
+
     selected_destination = request.GET.get("destination", "")
 
     return render(request, "main/itinerary.html", {
