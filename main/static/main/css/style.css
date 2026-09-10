@@ -2828,6 +2828,7 @@ ul.helptext li{
 
     .destinations .card {
         width: 100%;
+        height:250px;
     }
 
     .destinations .card img {
