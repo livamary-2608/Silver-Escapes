@@ -23,7 +23,12 @@
         
 
         <h1>
-    Welcome back,
+    {% if first_login %}
+        Welcome,
+    {% else %}
+        Welcome back,
+    {% endif %}
+
     {% if request.user.first_name %}
         {{ request.user.first_name }}
     {% else %}

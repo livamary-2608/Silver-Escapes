@@ -23,7 +23,9 @@ def login_page(request):
             password=password
         )
         if user is not None:
+            first_login = user.last_login is None
             login(request, user)
+            request.session["first_login"] = first_login
             return redirect("dashboard")
         else:
             messages.error(request, "Invalid username or password.")
@@ -50,6 +52,7 @@ def about(request):
     return render(request, "main/about.html")
 def register_page(request):
     if request.method == "POST":
+        fullname = request.POST["fullname"]
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
@@ -66,7 +69,8 @@ def register_page(request):
         User.objects.create_user(
             username=username,
             email=email,
-            password=password
+            password=password,
+            first_name=fullname
         )
         return redirect(f"{reverse('login')}?registered=true")
     return render(request, "main/register.html")
@@ -77,7 +81,7 @@ def faq(request):
     return render(request, "main/faq.html")
 @login_required(login_url="login")
 def dashboard(request):
-
+    first_login = request.session.pop("first_login", False)
     itineraries = Itinerary.objects.filter(
         user=request.user
     ).order_by("-created_at")[:3]
@@ -119,6 +123,7 @@ def dashboard(request):
         "trips": trips,
 
         "wishlist": wishlist,
+        "first_login":first_login,
 
     })
 def destinations(request):

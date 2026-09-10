@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silver Escapes</title>
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -14,22 +14,48 @@
 </head>
 <body>
 <nav class="navbar">
+
     <div class="logo">
-    <img src="{% static 'main/images/logo.png' %}" alt="Logo">
-    <span>
-    <span class="silver">Silver</span>
-    <span class="escapes">Escapes</span>
-    </span>
+        <img src="{% static 'main/images/logo.png' %}" alt="Logo">
+        <span>
+            <span class="silver">Silver</span>
+            <span class="escapes">Escapes</span>
+        </span>
     </div>
+    <div class="mobile-nav-actions">
+        <a href="{% url 'about' %}" class="mobile-about">
+            About
+        </a>
+        {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}" class="mobile-login">
+            Login
+        </a>
+        {% endif %}
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+    
     <ul class="nav-links">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'destinations' %}">Destinations</a></li>
-        <li><a href="{% url 'itinerary' %}">Itinerary</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'destinations' %}">Destinations</a>
+        </li>
+        <li>
+            <a href="{% url 'itinerary' %}">Itinerary</a>
+        </li>
+        <li>
+            <a href="{% url 'about' %}">About</a>
+        </li>
+        <li>
+            <a href="{% url 'contact' %}">Contact</a>
+        </li>
+
         {% if user.is_authenticated %}
 
-<li>
+        <li>
     <a href="{% url 'dashboard' %}" class="nav-profile">
 
         {% if user.profile.profile_picture %}
@@ -41,27 +67,27 @@
         {% endif %}
 
     </a>
-</li>
 
-<li>
-    <a href="{% url 'logout' %}" class="logout-link">
-        Logout
+    <a href="{% url 'dashboard' %}" class="mobile-profile-link">
+        Profile
     </a>
 </li>
-
-{% else %}
-
-<li>
-    <a href="{% url 'login' %}">
-        Login
-    </a>
-</li>
-
-{% endif %}
+        <li>
+            <a href="{% url 'logout' %}" class="logout-link">
+                Logout
+            </a>
+        </li>
+        {% else %}
+        <li>
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+        </li>
+        {% endif %}
     </ul>
 </nav>
 {% block content %}
 {% endblock %}
-<script src="{% static 'main/js/script.js' %}"></script>
+<script src="{% static 'main/js/script.js' %}?v=2"></script>
 </body>
 </html>

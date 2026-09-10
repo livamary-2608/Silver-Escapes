@@ -106,3 +106,29 @@ document.querySelectorAll(".togglePassword").forEach(icon => {
 
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener("click", function () {
+
+            navLinks.classList.toggle("mobile-menu-open");
+
+            const isOpen = navLinks.classList.contains("mobile-menu-open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+
+            if (isOpen) {
+                menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+
+        });
+
+    }
+
+});
