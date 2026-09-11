@@ -27,11 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    os.getenv("RENDER_EXTERNAL_HOSTNAME", "127.0.0.1"),
     "localhost",
+    "127.0.0.1",
+    ".vercel.app",
+    os.getenv("RENDER_EXTERNAL_HOSTNAME", ""),
 ]
 
 INSTALLED_APPS = [
@@ -120,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-EMAIL_BACKEND = "main.resend_backend.ResendEmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 
