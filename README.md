@@ -2,6 +2,10 @@
 
 A travel and itinerary planning platform built using Django.
 
+## 🌐 Live Demo
+
+🔗 **Live Website:** [Silver Escapes](https://silver-escapes.vercel.app/)
+
 ## Features
 - User Authentication
 - Destination Explorer
