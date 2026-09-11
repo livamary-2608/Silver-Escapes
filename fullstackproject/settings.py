@@ -33,7 +33,6 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     ".vercel.app",
-    os.getenv("RENDER_EXTERNAL_HOSTNAME", ""),
 ]
 
 INSTALLED_APPS = [

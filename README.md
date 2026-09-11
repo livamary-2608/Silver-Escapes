@@ -13,11 +13,15 @@ A travel and itinerary planning platform built using Django.
 - Password Reset via Email
 
 ## Tech Stack
+
 - Python
 - Django
 - HTML
 - CSS
 - JavaScript
-- SQLite
+- PostgreSQL (Neon)
+- Cloudinary
+- WhiteNoise
+- Vercel
 
 Developed by Liva Mary.

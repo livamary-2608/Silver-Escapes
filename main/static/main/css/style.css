@@ -2866,3 +2866,12 @@ ul.helptext li{
     }
 
 }
+@media (max-width: 900px) {
+
+    .hero-section {
+        width: calc(100% - 30px);
+        max-width: 420px;
+        margin: 30px auto;
+    }
+
+}
